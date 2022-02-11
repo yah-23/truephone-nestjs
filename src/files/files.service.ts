@@ -32,4 +32,8 @@ export class FilesService {
 
     return this.fileRepository.save(fileCreated);
   }
+
+  findAll() {
+    return this.fileRepository.find();
+  }
 }

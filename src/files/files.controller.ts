@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -32,5 +33,10 @@ export class FilesController {
     @Body('data') data: MessageDTO[],
   ): Promise<File> {
     return this.filesService.save(file, data);
+  }
+
+  @Get()
+  findAll() {
+    return this.filesService.findAll();
   }
 }
