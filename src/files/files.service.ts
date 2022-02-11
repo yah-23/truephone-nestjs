@@ -21,11 +21,11 @@ export class FilesService {
   }
 
   async save(file: CreateFileDto, data: MessageDTO[]): Promise<File> {
-    const { filename, date } = file;
+    const { path } = file;
 
     const fileCreated = this.fileRepository.create({
-      name: filename,
-      date,
+      name: path,
+      date: new Date(),
     });
     const messages = this.messageRepository.create(data);
     fileCreated['messages'] = await this.messageRepository.save(messages);
